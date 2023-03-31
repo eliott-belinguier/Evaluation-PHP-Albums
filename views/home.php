@@ -12,7 +12,7 @@ function displayRowAlbum(int $rank, Album $album) {
         <td><?= $artiste->getPrenom() . " " . $artiste->getNom() ?></td>
         <td><img src="/images/<?= $album->getPochette() ?>"></td>
         <td><?= $album->getAverageNote() ?></td>
-        <td><a class="btn btn-primary" href="/?id=<?= $album->getId() ?>" role="button">Link</a></td>
+        <td><a class="btn btn-primary" href="/?id=<?= $album->getId() ?>" role="button">Noter</a></td>
     </tr>
     <?php
 }
