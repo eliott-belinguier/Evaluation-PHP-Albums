@@ -1,6 +1,5 @@
 <?php
 namespace Controller;
-include 'models/album.php';
 
 use Model\Album;
 

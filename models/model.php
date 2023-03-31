@@ -1,8 +1,14 @@
 <?php
 namespace Model;
 
-interface Model {
+class Model {
 
-    public function getId(): int;
+    protected function fetch(string $table, ?array $filter): ?array {
+        return null;
+    }
+
+    public function getId(): int {
+        return -1;
+    }
 
 }

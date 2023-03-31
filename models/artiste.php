@@ -1,8 +1,7 @@
 <?php
-
 namespace Model;
 
-class Artiste implements Model {
+class Artiste extends Model {
 
     private $id;
     private $nom;

@@ -1,7 +1,7 @@
 <?php
 namespace Model;
 
-class Note implements Model {
+class Note extends Model {
 
     private $id;
     private $note;

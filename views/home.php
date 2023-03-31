@@ -1,13 +1,15 @@
 <?php
 use \Model\Album;
 
-function displayAlbum(Album $album) {
+global $album;
+
+function displayRowAlbum(Album $album) {
     ?>
     <tr>
         <th scope="row">1</th>
         <td><?= $album->getTitle() ?></td>
         <td><?= $album->getPochette() ?> Otto</td>
-        <td>@mdo</td>
+        <td><a class="btn btn-primary" href="/?id=<?= $album->getId() ?>" role="button">Link</a></td>
     </tr>
     <?php
 }
@@ -34,23 +36,13 @@ function displayAlbum(Album $album) {
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-    </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-    </tr>
+        <?php
+        if ($album != null) {
+            foreach ($album as $current) {
+                displayRowAlbum($current);
+            }
+        }
+        ?>
     </tbody>
 </table>
 </body>

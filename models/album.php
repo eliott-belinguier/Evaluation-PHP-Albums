@@ -1,8 +1,7 @@
 <?php
 namespace Model;
-include 'models/model.php';
 
-class Album implements Model {
+class Album extends Model {
 
     private $id;
     private $title;
