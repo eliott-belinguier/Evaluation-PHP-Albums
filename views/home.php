@@ -9,6 +9,7 @@ function displayRowAlbum(int $rank, Album $album) {
         <th scope="row"><?= $rank ?></th>
         <td><?= $album->getTitle() ?></td>
         <td><img src="/images/<?= $album->getPochette() ?>"></td>
+        <td><?= $album->getAverageNote() ?></td>
         <td><a class="btn btn-primary" href="/?id=<?= $album->getId() ?>" role="button">Link</a></td>
     </tr>
     <?php
@@ -39,6 +40,7 @@ function displayRowAlbum(int $rank, Album $album) {
         <th scope="col">#</th>
         <th scope="col">Titre</th>
         <th scope="col">Pochettes</th>
+        <th scope="col">Note Moyenne</th>
         <th scope="col">Noter?</th>
     </tr>
     </thead>
