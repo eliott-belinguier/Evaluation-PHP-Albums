@@ -26,8 +26,7 @@ function displayRowAlbum(Album $album) {
     <title>Albums</title>
 </head>
 <body>
-<form method="get" action="/">
-    <label for="note" class="form-label">Note: </label>
+<form method="post" action="/">
     <div class="input-group flex-nowrap">
         <span class="input-group-text" id="addon-wrapping">Titre: </span>
         <input type="text" class="form-control" placeholder="Titre" aria-label="Titre" aria-describedby="addon-wrapping" name="search">
