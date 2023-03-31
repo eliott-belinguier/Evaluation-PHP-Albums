@@ -1,5 +1,6 @@
 <?php
 namespace Model;
+include 'models/model.php';
 
 class Album implements Model {
 
