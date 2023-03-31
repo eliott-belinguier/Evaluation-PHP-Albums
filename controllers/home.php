@@ -22,11 +22,13 @@ class Home {
             $album = Album::fetchAll();
             if ($search != null) {
                 $searchPrefix = strtolower($search);
-                $album = array_filter($album, static function ($element) use ($searchPrefix) {
-                   return str_starts_with(strtolower($element->getTitle()), $searchPrefix);
+                $album = array_filter($album, static function (Album $element) use ($searchPrefix) {
+                    $artiste = $element->getArtiste();
+                    return str_starts_with(strtolower($artiste->getNom()), $searchPrefix)
+                        || str_starts_with(strtolower($artiste->getPrenom()), $searchPrefix);
                 });
             }
-            usort($album, static function ($element1, $element2) {
+            usort($album, static function (Album $element1, Album $element2) {
                 return $element2->getAverageNote() - $element1->getAverageNote();
             });
             include __DIR__ . '/../views/home.php';

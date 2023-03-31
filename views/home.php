@@ -4,10 +4,12 @@ use \Model\Album;
 global $album;
 
 function displayRowAlbum(int $rank, Album $album) {
+    $artiste = $album->getArtiste();
     ?>
     <tr>
         <th scope="row"><?= $rank ?></th>
         <td><?= $album->getTitle() ?></td>
+        <td><?= $artiste->getPrenom() . " " . $artiste->getNom() ?></td>
         <td><img src="/images/<?= $album->getPochette() ?>"></td>
         <td><?= $album->getAverageNote() ?></td>
         <td><a class="btn btn-primary" href="/?id=<?= $album->getId() ?>" role="button">Link</a></td>
@@ -39,6 +41,7 @@ function displayRowAlbum(int $rank, Album $album) {
     <tr>
         <th scope="col">#</th>
         <th scope="col">Titre</th>
+        <th scope="col">Artiste</th>
         <th scope="col">Pochettes</th>
         <th scope="col">Note Moyenne</th>
         <th scope="col">Noter?</th>
