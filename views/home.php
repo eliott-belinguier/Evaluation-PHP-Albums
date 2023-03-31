@@ -58,4 +58,3 @@ function displayRowAlbum(int $rank, Album $album) {
 </table>
 </body>
 </html>
-
