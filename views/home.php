@@ -8,7 +8,7 @@ function displayRowAlbum(Album $album) {
     <tr>
         <th scope="row">1</th>
         <td><?= $album->getTitle() ?></td>
-        <td><?= $album->getPochette() ?> Otto</td>
+        <td><img src="/images/<?= $album->getPochette() ?>"></td>
         <td><a class="btn btn-primary" href="/?id=<?= $album->getId() ?>" role="button">Link</a></td>
     </tr>
     <?php

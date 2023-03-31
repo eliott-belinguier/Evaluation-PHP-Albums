@@ -43,12 +43,42 @@ class Album extends Model {
         return $this->notes;
     }
 
+    public function addNote(int $note, string $comment): bool {
+        if ($note < 1 || $note > 5)
+            return false;
+
+    }
+
+    private static function buildFromRow(?array $row): ?Album {
+        if ($row == null)
+            return null;
+        $artiste = Artiste::fetchFromId($row['idArtiste']);
+        if ($artiste == null)
+            return null;
+        $notes = Note::fetchFromOeuvreId($row['id']);
+        return new Album($row['id'], $row['Titre'], $row['Description'], $row['Pochette'], $artiste, $notes);
+    }
+
     public static function fetchFromId(int $id): ?Album {
-        return null;
+        $result = self::fetch('album', array('id' => $id));
+        if ($result == null || count($result) != 1)
+            return null;
+        return self::buildFromRow($result[0]);
     }
 
     public static function fetchAll(): ?array {
-        return null;
+        $result = self::fetch('album');
+        if ($result == null || count($result) < 1)
+            return null;
+        $albums = [];
+        foreach ($result as $rowArtiste) {
+            $artiste = self::buildFromRow($rowArtiste);
+            if ($artiste != null)
+                $albums[] = $artiste;
+        }
+        if (count($albums) < 1)
+            return null;
+        return $albums;
     }
 
 }

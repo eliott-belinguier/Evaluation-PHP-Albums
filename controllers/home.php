@@ -18,7 +18,7 @@ class Home {
             include __DIR__ . '/../views/home.php';
             return;
         }
-        include __DIR__ . '/../views/home.php';
+        include __DIR__ . '/../views/album.php';
     }
 
 }

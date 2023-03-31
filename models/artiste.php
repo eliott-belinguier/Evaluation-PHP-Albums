@@ -14,15 +14,43 @@ class Artiste extends Model {
     }
 
     public function getId(): int {
-        return -1;
+        return $this->id;
+    }
+
+    public function getNom(): string {
+        return $this->nom;
+    }
+
+    public function getPrenom(): string {
+        return $this->prenom;
+    }
+
+    private static function buildFromRow(?array $row): ?Artiste {
+        if ($row == null)
+            return null;
+        return new Artiste($row['id'], $row['Nom'], $row['Prenom']);
     }
 
     public static function fetchFromId(int $id): ?Artiste {
-        return null;
+        $result = self::fetch('artiste', array('id' => $id));
+        if ($result == null || count($result) != 1)
+            return null;
+        return self::buildFromRow($result[0]);
     }
 
     public static function fetchAll(): ?array {
-        return null;
+        $result = self::fetch('artiste');
+        if ($result == null || count($result) < 1)
+            return null;
+        $artistes = [];
+        foreach ($result as $rowArtiste) {
+            $artiste = self::buildFromRow($rowArtiste);
+            if ($artiste != null)
+                $artistes[] = $artiste;
+        }
+        if (count($artistes) < 1)
+            return null;
+        return $artistes;
     }
 
 }
