@@ -23,12 +23,12 @@ class Model {
         $valueCount = $values != null ? count($values) : 0;
         if ($valueCount < 1)
             return false;
-        $request = 'INSERT INTO $table (id';
+        $request = "INSERT INTO $table (id";
         foreach ($values as $key => $value)
             $request .= ', ' . $key;
-        $request .= ') (DEFAULT';
-        for ($i = 0; $i < $valueCount; ++$i)
-            $request .= ', ?';
+        $request .= ') VALUES (default';
+        $request .= str_repeat(', ?', $valueCount);
+        $request .= ')';
         $stmt = $db->prepare($request);
         $i = 0;
         foreach ($values as $value)

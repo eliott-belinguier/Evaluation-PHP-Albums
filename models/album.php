@@ -49,13 +49,13 @@ class Album extends Model {
         $result /= count($this->notes);
         return $result;
     }
-    
+
     public function getNotes(): ?array {
         return $this->notes;
     }
 
-    public function addNote(int $note, string $comment): bool {
-        if ($note < 1 || $note > 5)
+    public function addNote(int $note, ?string $comment): bool {
+        if ($note < 1 || $note > 5 || $comment == null)
             return false;
         return self::insert('noter', array(
             'idOeuvre' => $this->id,

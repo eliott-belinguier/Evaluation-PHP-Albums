@@ -11,7 +11,11 @@ include 'controllers/sessions.php';
 use \Controller\Session;
 use \Controller\Home;
 
-Home::addNote($_GET['id'] ?? null, $_POST['note'] ?? null, $_POST['comment'] ?? null);
+Home::addNote(
+    $_GET['id'] ?? null,
+        $_POST['note'] ?? null,
+        $_POST['comment'] ?? null
+);
 Home::get(
     $_GET['id'] ?? null,
     $_POST['search'] ?? null

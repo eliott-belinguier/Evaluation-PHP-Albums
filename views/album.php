@@ -21,12 +21,15 @@ global $album;
         <div class="card-body">
             <h5 class="card-title"><?= $album->getTitle() ?></h5>
             <p class="card-text"><?= $album->getDescription() ?></p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
             <div class="card" style="width: 18rem;">
                 <form method="post" action="/?id=<?= $album->getId() ?>">
                     <label for="note" class="form-label">Note: </label>
                     <input type="range" class="form-range" min="1" max="5" id="note" name="note">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-text" id="inputGroup-sizing-lg">Comment:</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="comment">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
                 </form>
             </div>
         </div>
