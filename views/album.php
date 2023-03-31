@@ -23,7 +23,7 @@ global $album;
             <p class="card-text"><?= $album->getDescription() ?></p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
             <div class="card" style="width: 18rem;">
-                <form>
+                <form method="post" action="/?id=<?= $album->getId() ?>">
                     <label for="note" class="form-label">Note: </label>
                     <input type="range" class="form-range" min="1" max="5" id="note" name="note">
                     <button type="submit" class="btn btn-primary">Submit</button>

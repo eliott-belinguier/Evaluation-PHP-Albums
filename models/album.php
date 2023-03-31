@@ -39,6 +39,17 @@ class Album extends Model {
         return $this->artiste;
     }
 
+    public function getAverageNote(): int {
+        $result = 0;
+
+        if ($this->notes == null)
+            return 0;
+        foreach ($this->notes as $note)
+            $result += $note->getNote();
+        $result /= count($this->notes);
+        return $result;
+    }
+    
     public function getNotes(): ?array {
         return $this->notes;
     }

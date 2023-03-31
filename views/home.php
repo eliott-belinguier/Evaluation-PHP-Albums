@@ -3,10 +3,10 @@ use \Model\Album;
 
 global $album;
 
-function displayRowAlbum(Album $album) {
+function displayRowAlbum(int $rank, Album $album) {
     ?>
     <tr>
-        <th scope="row">1</th>
+        <th scope="row"><?= $rank ?></th>
         <td><?= $album->getTitle() ?></td>
         <td><img src="/images/<?= $album->getPochette() ?>"></td>
         <td><a class="btn btn-primary" href="/?id=<?= $album->getId() ?>" role="button">Link</a></td>
@@ -45,9 +45,8 @@ function displayRowAlbum(Album $album) {
     <tbody>
         <?php
         if ($album != null) {
-            foreach ($album as $current) {
-                displayRowAlbum($current);
-            }
+            for ($i = 0; $i < count($album); ++$i)
+                displayRowAlbum($i + 1, $album[$i]);
         }
         ?>
     </tbody>
