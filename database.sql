@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `album` (
 -- Contenu de la table `album`
 --
 
-INSERT INTO `album` (`id`, `Titre`, `Desciption`, `Pochette`, `idArtiste`) VALUES
+INSERT INTO `album` (`id`, `Titre`, `Description`, `Pochette`, `idArtiste`) VALUES
 (1, '2019 le monde des Enfoirés', 'Cette année encore, et pour la trentième édition, les plus grands artistes français se mobilisent pour les Restos du Cœur !\r\nPlus que jamais, les Restos du Cœur ont besoin de vous !\r\n« CHAQUE CD OU DVD VENDU = 17 REPAS OFFERTS »', 'les_Enfoires.jpg', 1),
 (2, 'THE PLATINUM COLLECTION', 'Greatest Hits I, II & III: The Platinum Collection Les plus grands titres d''un des meilleurs groupes de tous les temps.', 'queen.jpg', 2),
 (3, 'BROL', 'Âgée de 22 ans et déjà 3 hits à son actif, Angèle sort à présent son premier album, dont le titre est une expression qui nous rappelle ses origines bruxelloises. Brol qui veut dire désordre, ou gadget en argot belge, sort sur son propre label nouvellement crée, ''Angèle VL Records''. Angèle s’est d’abord fait connaître via Instagram, et le bouche à oreille a suffi pour la mettre rapidement en haut de l’affiche. D’Instagram aux premières parties, et des premières parties à ses propres concerts, en seulement 1 an, l’artiste a tourné dans toute la France, mais aussi en Suisse, Belgique, Pays-Bas et Québec. Avec ''La Thune'', ''La Loi De Murphy'' et ''Je Veux Tes Yeux'', elle s’est directement projetée au sommet des charts et ça ne fait que commencer...', 'angele.jpg', 3),
