@@ -26,6 +26,7 @@ global $album;
                 <form>
                     <label for="note" class="form-label">Note: </label>
                     <input type="range" class="form-range" min="1" max="5" id="note" name="note">
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>

@@ -10,6 +10,12 @@ class Home {
 
         if (!$albumId) {
             $album = Album::fetchAll();
+            if ($search != null) {
+                $searchPrefix = strtolower($search);
+                $album = array_filter($album, static function ($element) use ($searchPrefix) {
+                   return str_starts_with(strtolower($element->getTitle()), $searchPrefix);
+                });
+            }
             include __DIR__ . '/../views/home.php';
             return;
         }

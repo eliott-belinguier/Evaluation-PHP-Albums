@@ -46,7 +46,11 @@ class Album extends Model {
     public function addNote(int $note, string $comment): bool {
         if ($note < 1 || $note > 5)
             return false;
-
+        return self::insert('noter', array(
+            'idOeuvre' => $this->id,
+            'note' => $note,
+            'commentaire' => $comment
+        ));
     }
 
     private static function buildFromRow(?array $row): ?Album {
